@@ -116,6 +116,24 @@ export interface ITitleOptions {
     verticalAlign?: "top" | "middle" | "bottom";
 }
 
+export interface IRenderOverloadTimeOptions {
+  /** The text to display on the top-left side of the chart. Defaults to "". */
+  text?: string;
+  /** Colour for text. */
+  fillStyle?: string;
+  fontSize?: number;
+  fontFamily?: string;
+}
+
+export interface IPhysicsOverloadTimeOptions {
+  /** The text to display on the bottom-left side of the chart. Defaults to "". */
+  text?: string;
+  /** Colour for text. */
+  fillStyle?: string;
+  fontSize?: number;
+  fontFamily?: string;
+}
+
 export interface IRange { min: number; max: number }
 
 export interface IHorizontalLine {
@@ -158,6 +176,10 @@ export interface IChartOptions {
     labels?: ILabelOptions;
 
     title?: ITitleOptions;
+
+    renderOverloadTime?: IRenderOverloadTimeOptions;
+
+    physicsOverloadTime?: IPhysicsOverloadTimeOptions;
 
     tooltip?: boolean;
     tooltipLine?: { lineWidth: number, strokeStyle: string };

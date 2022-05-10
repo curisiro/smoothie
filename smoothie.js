@@ -346,6 +346,34 @@
    *     fontFamily: 'sans-serif',
    *     verticalAlign: 'middle'                 // one of 'top', 'middle', or 'bottom'
    *   },
+   *   renderOverloadTime
+   *   {
+   *     text: '',                               // the text to display in ms
+   *     fillStyle: '#00ff00',                   // colour for text
+   *     fontSize: 15,
+   *     fontFamily: 'sans-serif',
+   *   },
+   *   physicsOverloadTime
+   *   {
+   *     text: '',                               // the text to display in ms
+   *     fillStyle: '#0000ff',                   // colour for text
+   *     fontSize: 15,
+   *     fontFamily: 'sans-serif',
+   *   },
+   *   maxRenderLoad
+   *   {
+   *     text: '',                               // the text to display in ms
+   *     fillStyle: '#00ff00',                   // colour for text
+   *     fontSize: 15,
+   *     fontFamily: 'sans-serif',
+   *   },
+   *   maxPhysicsLoad
+   *   {
+   *     text: '',                               // the text to display in ms
+   *     fillStyle: '#0000ff',                   // colour for text
+   *     fontSize: 15,
+   *     fontFamily: 'sans-serif',
+   *   },
    *   tooltip: false                            // show tooltip when mouse is over the chart
    *   tooltipLine: {                            // properties for a vertical line at the cursor position
    *     lineWidth: 1,
@@ -436,6 +464,30 @@
       fontSize: 15,
       fontFamily: 'monospace',
       verticalAlign: 'middle'
+    },
+    renderOverloadTime: {
+      text: '',                               // the text to display in ms
+      fillStyle: '#00ff00',                   // colour for text
+      fontSize: 10,
+      fontFamily: 'sans-serif',
+    },
+    physicsOverloadTime: {
+      text: '',                               // the text to display in ms
+      fillStyle: '#0000ff',                   // colour for text
+      fontSize: 10,
+      fontFamily: 'sans-serif',
+    },
+    maxRenderLoad: {
+      text: '',                               // the text to display in ms
+      fillStyle: '#00ff00',                   // colour for text
+      fontSize: 10,
+      fontFamily: 'sans-serif',
+    },
+    maxPhysicsLoad: {
+      text: '',                               // the text to display in ms
+      fillStyle: '#0000ff',                   // colour for text
+      fontSize: 10,
+      fontFamily: 'sans-serif',
     },
     horizontalLines: [],
     tooltip: false,
@@ -1133,8 +1185,32 @@
       context.fillText(chartOptions.title.text, titleXPos, titleYPos);
     }
 
+    // Display renderOverloadTime on top
+    if (chartOptions.renderOverloadTime.text !== '') {
+      context.font = chartOptions.renderOverloadTime.fontSize + 'px ' + chartOptions.renderOverloadTime.fontFamily;
+      var renderOverloadTimeXPos = chartOptions.scrollBackwards ? dimensions.width - context.measureText(chartOptions.renderOverloadTime.text).width - 2 : 2;
+      context.textBaseline = 'top';
+      var renderOverloadTimeYPos = 0;
+
+      context.fillStyle = chartOptions.renderOverloadTime.fillStyle;
+      context.fillText(chartOptions.renderOverloadTime.text, renderOverloadTimeXPos, renderOverloadTimeYPos);
+    }
+
+    // Display physicsOverloadTime on bottom
+    if (chartOptions.physicsOverloadTime.text !== '') {
+      context.font = chartOptions.physicsOverloadTime.fontSize + 'px ' + chartOptions.physicsOverloadTime.fontFamily;
+      var physicsOverloadTimeXPos = chartOptions.scrollBackwards ? dimensions.width - context.measureText(chartOptions.physicsOverloadTime.text).width - 2 : 2;
+      context.textBaseline = 'bottom';
+      var physicsOverloadTimeYPos = dimensions.height;
+
+      context.fillStyle = chartOptions.physicsOverloadTime.fillStyle;
+      context.fillText(chartOptions.physicsOverloadTime.text, physicsOverloadTimeXPos, physicsOverloadTimeYPos);
+    }
+
     context.restore(); // See .save() above.
   };
+
+  
 
   // Sample timestamp formatting function
   SmoothieChart.timeFormatter = function(date) {
