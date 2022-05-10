@@ -1188,9 +1188,9 @@
     // Display renderOverloadTime on top - left
     if (chartOptions.renderOverloadTime.text !== '') {
       context.font = chartOptions.renderOverloadTime.fontSize + 'px ' + chartOptions.renderOverloadTime.fontFamily;
-      var renderOverloadTimeXPos = chartOptions.scrollBackwards ? dimensions.width - context.measureText(chartOptions.renderOverloadTime.text).width - 2 : 2;
+      var renderOverloadTimeXPos = 2;
       context.textBaseline = 'top';
-      var renderOverloadTimeYPos = 0;
+      var renderOverloadTimeYPos = 2;
 
       context.fillStyle = chartOptions.renderOverloadTime.fillStyle;
       context.fillText(chartOptions.renderOverloadTime.text, renderOverloadTimeXPos, renderOverloadTimeYPos);
@@ -1199,7 +1199,7 @@
     // Display physicsOverloadTime on 1/4 top - left
     if (chartOptions.physicsOverloadTime.text !== '') {
       context.font = chartOptions.physicsOverloadTime.fontSize + 'px ' + chartOptions.physicsOverloadTime.fontFamily;
-      var physicsOverloadTimeXPos = chartOptions.scrollBackwards ? dimensions.width - context.measureText(chartOptions.physicsOverloadTime.text).width - 2 : 2;
+      var physicsOverloadTimeXPos = dimensions.width - context.measureText(chartOptions.physicsOverloadTime.text).width - 2;
       context.textBaseline = 'middle';
       var physicsOverloadTimeYPos = dimensions.height / 4;
 
@@ -1210,9 +1210,9 @@
     // Display maxRenderLoad on top - middle
     if (chartOptions.maxRenderLoad.text !== '') {
       context.font = chartOptions.maxRenderLoad.fontSize + 'px ' + chartOptions.maxRenderLoad.fontFamily;
-      var maxRenderLoadXPos = chartOptions.scrollBackwards ? dimensions.width / 2 - context.measureText(chartOptions.maxRenderLoad.text).width - 2 : 2;
+      var maxRenderLoadXPos = 2;
       context.textBaseline = 'top';
-      var maxRenderLoadYPos = 0;
+      var maxRenderLoadYPos = 2;
 
       context.fillStyle = chartOptions.maxRenderLoad.fillStyle;
       context.fillText(chartOptions.maxRenderLoad.text, maxRenderLoadXPos, maxRenderLoadYPos);
@@ -1221,7 +1221,7 @@
     // Display maxPhysicsLoad on 1/4 top - middle
     if (chartOptions.maxPhysicsLoad.text !== '') {
       context.font = chartOptions.maxPhysicsLoad.fontSize + 'px ' + chartOptions.maxPhysicsLoad.fontFamily;
-      var maxPhysicsLoadXPos = chartOptions.scrollBackwards ? dimensions.width / 2 - context.measureText(chartOptions.maxPhysicsLoad.text).width - 2 : 2;
+      var maxPhysicsLoadXPos = dimensions.width / 2 - context.measureText(chartOptions.maxPhysicsLoad.text).width - 2;
       context.textBaseline = 'middle';
       var maxPhysicsLoadYPos = dimensions.height / 4;
       
