@@ -1210,7 +1210,7 @@
     // Display maxRenderLoad on top - middle
     if (chartOptions.maxRenderLoad.text !== '') {
       context.font = chartOptions.maxRenderLoad.fontSize + 'px ' + chartOptions.maxRenderLoad.fontFamily;
-      var maxRenderLoadXPos = dimensions.width / 2 - context.measureText(chartOptions.maxRenderLoad.text).width - 2;
+      var maxRenderLoadXPos = dimensions.width / 2 + context.measureText(chartOptions.maxRenderLoad.text).width - 2;
       context.textBaseline = 'top';
       var maxRenderLoadYPos = 2;
 
@@ -1221,7 +1221,7 @@
     // Display maxPhysicsLoad on 1/4 top - middle
     if (chartOptions.maxPhysicsLoad.text !== '') {
       context.font = chartOptions.maxPhysicsLoad.fontSize + 'px ' + chartOptions.maxPhysicsLoad.fontFamily;
-      var maxPhysicsLoadXPos = dimensions.width / 2 - context.measureText(chartOptions.maxPhysicsLoad.text).width - 2;
+      var maxPhysicsLoadXPos = dimensions.width / 2 + context.measureText(chartOptions.maxPhysicsLoad.text).width - 2;
       context.textBaseline = 'middle';
       var maxPhysicsLoadYPos = dimensions.height / 4;
       
