@@ -1199,7 +1199,7 @@
     // Display physicsOverloadTime on 1/4 top - left
     if (chartOptions.physicsOverloadTime.text !== '') {
       context.font = chartOptions.physicsOverloadTime.fontSize + 'px ' + chartOptions.physicsOverloadTime.fontFamily;
-      var physicsOverloadTimeXPos = dimensions.width - context.measureText(chartOptions.physicsOverloadTime.text).width - 2;
+      var physicsOverloadTimeXPos = 2;
       context.textBaseline = 'middle';
       var physicsOverloadTimeYPos = dimensions.height / 4;
 
@@ -1210,7 +1210,7 @@
     // Display maxRenderLoad on top - middle
     if (chartOptions.maxRenderLoad.text !== '') {
       context.font = chartOptions.maxRenderLoad.fontSize + 'px ' + chartOptions.maxRenderLoad.fontFamily;
-      var maxRenderLoadXPos = 2;
+      var maxRenderLoadXPos = dimensions.width / 2 - context.measureText(chartOptions.maxRenderLoad.text).width - 2;
       context.textBaseline = 'top';
       var maxRenderLoadYPos = 2;
 
