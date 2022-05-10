@@ -134,6 +134,24 @@ export interface IPhysicsOverloadTimeOptions {
   fontFamily?: string;
 }
 
+export interface IMaxRenderLoadOptions {
+  /** The text to display on the top-center of the chart. Defaults to "". */
+  text?: string;
+  /** Colour for text. */
+  fillStyle?: string;
+  fontSize?: number;
+  fontFamily?: string;
+}
+
+export interface IMaxPhysicsLoadOptions {
+  /** The text to display on the bottom-center side of the chart. Defaults to "". */
+  text?: string;
+  /** Colour for text. */
+  fillStyle?: string;
+  fontSize?: number;
+  fontFamily?: string;
+}
+
 export interface IRange { min: number; max: number }
 
 export interface IHorizontalLine {
@@ -180,6 +198,10 @@ export interface IChartOptions {
     renderOverloadTime?: IRenderOverloadTimeOptions;
 
     physicsOverloadTime?: IPhysicsOverloadTimeOptions;
+
+    maxRenderLoad?: IMaxRenderLoadOptions;
+
+    maxPhysicsLoad?: IMaxPhysicsLoadOptions;
 
     tooltip?: boolean;
     tooltipLine?: { lineWidth: number, strokeStyle: string };
